@@ -73,11 +73,13 @@ function App() {
 
   const handleShareScore = async () => {
     try {
-      await navigator.clipboard.writeText(`I scored ${score} points on Pokémemory! Can you beat my score?`);
+      await navigator.clipboard.writeText(
+        `I scored ${score} points on Pokémemory! Can you beat my score? https://pokememory-self.vercel.app/`,
+      );
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      console.error("Failed to copy:", err);
     }
   };
 
