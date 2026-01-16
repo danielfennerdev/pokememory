@@ -10,7 +10,7 @@
 }
 
 .modal::backdrop {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(15px);
   animation: backdropFadeIn 0.1s ease-out;
 }
