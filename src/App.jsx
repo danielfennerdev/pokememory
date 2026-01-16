@@ -12,6 +12,7 @@ function App() {
   const [currentCards, setCurrentCards] = useState([]);
   const [modalOpen, setModalOpen] = useState(true);
   const [modalType, setModalType] = useState("instructions");
+  const [shareCopied, setShareCopied] = useState(false);
 
   const getNewCards = useCallback(
     (currentClickedIds) => {
@@ -70,6 +71,16 @@ function App() {
     setModalOpen(false);
   };
 
+  const handleShareScore = async () => {
+    try {
+      await navigator.clipboard.writeText(`I scored ${score} points on Pokémemory! Can you beat my score?`);
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   return (
     <div>
       <div className="signature">
@@ -96,6 +107,9 @@ function App() {
           <div>
             <p>Your Score: {score}</p>
             <p>High Score: {highScore}</p>
+            <button className="share-button" onClick={handleShareScore}>
+              {shareCopied ? "Copied!" : "Share Score"}
+            </button>
           </div>
         )}
       </Modal>
