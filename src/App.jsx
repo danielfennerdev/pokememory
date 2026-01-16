@@ -74,7 +74,7 @@ function App() {
   const handleShareScore = async () => {
     try {
       await navigator.clipboard.writeText(
-        `I scored ${score} points on Pokémemory! Can you beat my score? https://pokememory-self.vercel.app/`,
+        `I scored ${score} points on Pokémemory! Can you beat my score? https://pokememory-self.vercel.app/ by https://www.twitter.com/danielfenner`,
       );
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2000);
