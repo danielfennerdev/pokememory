@@ -1,0 +1,65 @@
+.modal {
+  border: none;
+  border-radius: 28px;
+  padding: 0;
+  margin: auto;
+  background: transparent;
+  max-width: 400px;
+  width: 90%;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  animation: backdropFadeIn 0.1s ease-out;
+}
+
+.modal-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.modal-title {
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.modal-body {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.modal-button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes backdropFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

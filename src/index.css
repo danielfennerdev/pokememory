@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --base: #11111b;
+  --base2: #181825;
+  --surface: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+  --primary: #cba6f7;
+  --head: #d3b6f7;
+  --food: #a6e3a1;
+  --text: #cdd6f4;
+  --subtext: #a6adc8;
+  --dynamic-head-color: var(--head);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Google Sans", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: var(--base);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 700;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(2.25rem, 8vw, 3.76rem);
+}
+
+h2 {
+  font-size: clamp(1.85rem, 6vw, 2.82rem);
+}
+
+h3 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+}
+
+h4 {
+  font-size: clamp(1.4rem, 3vw, 1.65rem);
+}
+
+h5 {
+  font-size: 1.18rem;
+}
+
+h6 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--subtext);
+}
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+.signature {
+  font-size: 10px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--subtext);
+}
+
+.signature a {
+  font-family: "Cal Sans", sans-serif;
+  color: var(--primary);
+}
+.signature a:hover {
+  text-decoration: underline;
+}
+
+#title {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--subtext);
+}
+
+#title {
+  font-size: 1rem;
+}

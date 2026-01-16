@@ -1,0 +1,28 @@
+main {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  width: calc(100% - 2rem);
+  max-width: 1200px;
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    width: 250px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
