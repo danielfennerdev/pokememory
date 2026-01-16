@@ -13,32 +13,37 @@ function App() {
   const [modalOpen, setModalOpen] = useState(true);
   const [modalType, setModalType] = useState("instructions");
 
-  const getNewCards = useCallback((currentClickedIds) => {
-    const maxClickedAllowed = Math.min(currentClickedIds.length, 4);
+  const getNewCards = useCallback(
+    (currentClickedIds) => {
+      const maxClickedAllowed = Math.min(currentClickedIds.length, 4);
 
-    const clickedObjects = pokemonList.filter((p) =>
-      currentClickedIds.includes(p.id),
-    );
-    const shuffledClicked = [...clickedObjects].sort(() => 0.5 - Math.random());
+      const clickedObjects = pokemonList.filter((p) =>
+        currentClickedIds.includes(p.id),
+      );
+      const shuffledClicked = [...clickedObjects].sort(
+        () => 0.5 - Math.random(),
+      );
 
-    const selectedClicked = shuffledClicked.slice(0, maxClickedAllowed);
+      const selectedClicked = shuffledClicked.slice(0, maxClickedAllowed);
 
-    const unclickedObjects = pokemonList.filter(
-      (p) => !currentClickedIds.includes(p.id),
-    );
-    const shuffledUnclicked = [...unclickedObjects].sort(
-      () => 0.5 - Math.random(),
-    );
+      const unclickedObjects = pokemonList.filter(
+        (p) => !currentClickedIds.includes(p.id),
+      );
+      const shuffledUnclicked = [...unclickedObjects].sort(
+        () => 0.5 - Math.random(),
+      );
 
-    const selectedUnclicked = shuffledUnclicked.slice(
-      0,
-      8 - selectedClicked.length,
-    );
+      const selectedUnclicked = shuffledUnclicked.slice(
+        0,
+        8 - selectedClicked.length,
+      );
 
-    return [...selectedClicked, ...selectedUnclicked].sort(
-      () => 0.5 - Math.random(),
-    );
-  }, [pokemonList]);
+      return [...selectedClicked, ...selectedUnclicked].sort(
+        () => 0.5 - Math.random(),
+      );
+    },
+    [pokemonList],
+  );
 
   useEffect(() => {
     setCurrentCards(getNewCards(clickedPokemonIds));
@@ -75,15 +80,17 @@ function App() {
       </div>
       <Modal
         isOpen={modalOpen}
-        onClose={modalType === "instructions" ? handleStartGame : handlePlayAgain}
+        onClose={
+          modalType === "instructions" ? handleStartGame : handlePlayAgain
+        }
         title={modalType === "instructions" ? "How to Play" : "Game Over"}
         buttonText={modalType === "instructions" ? "Start Game" : "Play Again"}
       >
         {modalType === "instructions" ? (
           <p>
             Try to click on as many different Pokémon as possible without
-            clicking the same one twice! Each time you click a Pokémon, the cards
-            will reshuffle. Good luck!
+            clicking the same one twice. Each time you click a Pokémon, the
+            cards will reshuffle. Good luck!
           </p>
         ) : (
           <div>
